@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Angular 1</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body ng-app="main_app">
+    <div ng-controller="controller_1">
+        <p>Hello Mr. <input type="text" ng-model="name"> :-)</p>
+        <div ng-controller="controller_2">
+            <p>Your designation is {{post}} and salary is {{sal | currency : '$' : '0'}}.</p>
+            <p>Companies tax policy is of {{taxPercent | number : '2'}}%.</p>
+            <div ng-controller="controller_3">
+                <p>According to new policy tax applicable would be {{taxPercent | number : '2'}}%.</p>
+                <p>Your net salary is {{getNetSal()}}.</p>
+                <p>Your Current Phone no. is {{::phone}}.</p>
+                <p>Please verify your Phone: <span ng-bind="phone"></span>.</p>
+                <p>Modify: <input type="text" ng-model="phone_modified"><button type="button" ng-click="modifyPhone()">Modify</button></p>
+            </div>
+        </div>
+        <div>
+            <input type="text" ng-model="input_a" ng-if="false" ng-init="inputA_Function();">
+            <input type="text" ng-model="input_b" ng-show="false" ng-init="inputB_Function();">
+            <button type="button" ng-click="asyncCall();">Async Req</button>
+        </div>
+        <div class="html-container"><code ng-bind="htmlResponse"></code></div>
+    </div>
+
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="factory.js"></script>
+    <script type="text/javascript" src="service.js"></script>
+    <script type="text/javascript" src="provider.js"></script>
+</body>
+</html>
